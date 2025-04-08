@@ -1,26 +1,24 @@
 import React, { useContext } from "react";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
+import Wrapper from "../Wrapper";
 
 function PotentialChats() {
   const { user } = useContext(AuthContext);
   const { potentialChats, createChat } = useContext(ChatContext);
+
   return (
-    <div style={{ border: "2px solid blue" }}>
-      {potentialChats &&
-        potentialChats.map((u, index) => {
-          return (
-            <div
-              key={index}
-              style={{ backgroundColor: "pink" }}
-              onClick={() => createChat(user._id, u._id)}
-            >
-              {u.name}
-              <div></div>
-            </div>
-          );
-        })}
-    </div>
+    <Wrapper styles="potential-chats-wrapper ">
+      {potentialChats.map((u, index) => (
+        <div
+          key={index}
+          onClick={() => createChat(user._id, u._id)}
+          className="potential-chats-user"
+        >
+          <div className="user-name">{u.name}</div>
+        </div>
+      ))}
+    </Wrapper>
   );
 }
 

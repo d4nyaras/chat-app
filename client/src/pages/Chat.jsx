@@ -4,7 +4,12 @@ import { Container, Stack } from "react-bootstrap";
 import UserChat from "../components/chat/UserChat";
 import { AuthContext } from "../context/AuthContext";
 import PotentialChats from "../components/chat/PotentialChats";
+import UsersBox from "../components/UsersBox";
+
 import ChatBox from "../components/chat/ChatBox";
+
+import Sidebar from "../components/Sidebar";
+
 function Chat() {
   const chatContext = useContext(ChatContext);
   const { user } = useContext(AuthContext);
@@ -17,27 +22,25 @@ function Chat() {
   const { userChats, updateCurrentChat } = chatContext;
 
   return (
-    <Container>
-      <PotentialChats />
-      {userChats?.length < 1 ? null : (
-        <Stack direction="horizontal" gap={4} className="align-items-start">
-          <Stack className="flex-grow-0" gap={3}>
-            {userChats?.map((chat, index) => {
-              return (
-                <div
-                  key={index}
-                  onClick={() => updateCurrentChat(chat)}
-                  style={{ border: "3px solid black" }}
-                >
-                  <UserChat chat={chat} user={user} />
-                </div>
-              );
-            })}
+    <Stack className="h-100" direction="horizontal" gap={3}>
+      <Sidebar />
+      <ChatBox />
+      {/* {userChats?.length < 1 ? null : (
+        <Stack direction="horizontal" className="w-100" gap={4}>
+          <Stack
+            style={{
+              maxWidth: "300px",
+            }}
+          >
+            <UsersBox />
           </Stack>
-          <ChatBox />
+          <Stack className="d-flex flex-grow-1  h-100">
+            <ChatBox />
+          </Stack>
         </Stack>
-      )}
-    </Container>
+      )} */}
+    </Stack>
   );
 }
+
 export default Chat;

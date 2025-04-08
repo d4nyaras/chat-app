@@ -15,6 +15,8 @@ export const ChatContextProvider = ({ children, user }) => {
   const [onlineUsers, setOnlineUsers] = useState(null);
   const [socket, setSocket] = useState(null);
 
+  console.log(JSON.stringify(messages));
+
   useEffect(() => {
     const newSocket = io("http://localhost:3000");
     setSocket(newSocket);
@@ -111,6 +113,7 @@ export const ChatContextProvider = ({ children, user }) => {
         console.log(response.error + " this error is from chat context");
       }
       setMessages(response);
+      console.log(JSON.stringify(response) + "CCCCCCCCCCCCC");
     };
 
     getMessages();
@@ -124,7 +127,7 @@ export const ChatContextProvider = ({ children, user }) => {
         `${baseUrl}/messages`,
         JSON.stringify({
           chatId: currentChatId,
-          senderId: sender.id,
+          senderId: sender._id,
           text: textMessage,
         })
       );

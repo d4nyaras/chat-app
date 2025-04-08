@@ -51,6 +51,7 @@ function ChatBox() {
           value={textMessage}
           onChange={setTextMessage}
           onKeyDown={handleKeyDown}
+          theme="light"
         />
         <div
           onClick={() =>

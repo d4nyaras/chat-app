@@ -1,40 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button, Form, Row, Col, Stack } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 
 function Login() {
-  const { loginInfo, updateLogin, loginUser, updateLoginInfo } =
-    useContext(AuthContext);
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const navigate = useNavigate();
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-  // const loginUser = async (userData) => {
-  //   const response = await axios.post(
-  //     "http://localhost:5000/api/auth/login",
-  //     userData
-  //   );
-  //   return response.data;
-  // };
-
-  // const mutation = useMutation({
-  //   mutationFn: loginUser,
-  //   onSuccess: (data) => {
-  //     localStorage.setItem("chat_app_user", JSON.stringify(data));
-  //     navigate("/");
-  //   },
-  // });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   mutation.mutate(formData);
-  // };
+  const { loginInfo, loginUser, updateLoginInfo } = useContext(AuthContext);
 
   return (
     <>

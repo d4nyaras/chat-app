@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Navbar from "./components/NavBar";
 import { AuthContext } from "./context/AuthContext";
 import { ChatContextProvider } from "./context/ChatContext";
 function App() {
@@ -11,7 +10,6 @@ function App() {
 
   return (
     <ChatContextProvider user={user}>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={user ? <Chat /> : <Login />} />
         <Route path="/login" element={user ? <Chat /> : <Login />} />

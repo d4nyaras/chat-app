@@ -2,12 +2,8 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import { useFetchRecipientUser } from "../../hooks/useFetchRecipient";
-import { Button, Stack } from "react-bootstrap";
 import moment from "moment";
 import InputEmoji from "react-input-emoji";
-import Wrapper from "../Wrapper";
-
-import PotentialChats from "./PotentialChats";
 
 function ChatBox() {
   const { user } = useContext(AuthContext);

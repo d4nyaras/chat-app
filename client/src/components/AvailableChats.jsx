@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ChatContext } from "../context/ChatContext";
 import { AuthContext } from "../context/AuthContext";
 import UserChat from "./chat/UserChat";
-import Wrapper from "./Wrapper";
 
 function AvailableChats() {
   const { userChats, updateCurrentChat } = useContext(ChatContext);

@@ -1,45 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Alert, Button, Form, Row, Col, Stack } from "react-bootstrap";
-import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import { AuthContext } from "../context/AuthContext";
 
 function Register() {
   const { registerInfo, updateRegisterInfo, registerUser, registerError } =
     useContext(AuthContext);
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const navigate = useNavigate();
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-
-  // const registerUser = async (userData) => {
-  //   const response = await axios.post(
-  //     "http://localhost:5000/api/auth/register",
-  //     userData
-  //   );
-  //   return response.data;
-  // };
-
-  // const mutation = useMutation({
-  //   mutationFn: registerUser,
-  //   onSuccess: () => {
-  //     navigate("/login");
-  //   },
-  // });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   mutation.mutate(formData);
-  // };
 
   return (
     <>
